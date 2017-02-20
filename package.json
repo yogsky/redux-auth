@@ -45,6 +45,7 @@
     "rc-dialog": "^6.1.1",
     "react-bootstrap": "^0.29.5",
     "react-loader": "^2.4.0",
+    "react-router-redux": "^4.0.8",
     "redux-immutablejs": "0.0.8"
   },
   "devDependencies": {
