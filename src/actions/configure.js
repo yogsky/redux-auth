@@ -13,6 +13,7 @@ import {
 } from "./ui";
 import {ssAuthTokenUpdate} from "./server";
 import {applyConfig} from "../utils/client-settings";
+import {setHeaders} from "../utils/fetch";
 import {destroySession} from "../utils/session-storage";
 import verifyAuth from "../utils/verify-auth";
 import getRedirectInfo from "../utils/parse-url";
@@ -35,6 +36,9 @@ export function configure(endpoint={}, settings={}) {
     }
 
     dispatch(authenticateStart());
+
+    // add default client headers to be sent with each fetch request
+    setHeaders(settings.clientHeaders)
 
     let promise,
         firstTimeLogin,

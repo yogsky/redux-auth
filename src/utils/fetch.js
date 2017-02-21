@@ -9,10 +9,14 @@ import {
   getSessionEndpointKey
 } from "./session-storage";
 
-var extraHeadersMap = {}
+var clientHeaders = {}
 
-export function addHeader(key, val) {
-  extraHeadersMap[key] = val
+export function setHeaders(headers = []) {
+  headers.forEach(obj => {
+    const key = Object.keys(obj)[0]
+    const value = obj[key]
+    clientHeaders[key] = value
+  })
 }
 
 var isApiRequest = function(url) {
@@ -84,7 +88,7 @@ export default function (url, options={}) {
   if (!options.headers) {
     options.headers = {}
   }
-  extend(options.headers, getAuthHeaders(url), extraHeadersMap);
+  extend(options.headers, getAuthHeaders(url), clientHeaders);
   return originalFetch(url, options)
     .then(resp => updateAuthCredentials(resp));
 }

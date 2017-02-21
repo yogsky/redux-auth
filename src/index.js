@@ -70,4 +70,3 @@ export {
 
 /* utils */
 export {default as fetch} from "./utils/fetch";
-export { addHeader } from "./utils/fetch";
