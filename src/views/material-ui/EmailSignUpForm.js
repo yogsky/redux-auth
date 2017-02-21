@@ -57,7 +57,17 @@ class EmailSignUpForm extends React.Component {
       <form className='redux-auth email-sign-up-form clearfix'
             style={{clear: "both", overflow: "hidden"}}
             onSubmit={this.handleSubmit.bind(this)}>
+
         <Input type="text"
+               floatingLabelText="Full name"
+               className="email-sign-up-name"
+               disabled={disabled}
+               value={this.props.auth.getIn(["emailSignUp", this.getEndpoint(), "form", "name"])}
+               errors={this.props.auth.getIn(["emailSignUp", this.getEndpoint(), "errors", "name"])}
+               onChange={this.handleInput.bind(this, "name")}
+               {...this.props.inputProps.name} />
+
+        <Input type="email"
                floatingLabelText="Email"
                className="email-sign-up-email"
                disabled={disabled}
@@ -65,6 +75,15 @@ class EmailSignUpForm extends React.Component {
                errors={this.props.auth.getIn(["emailSignUp", this.getEndpoint(), "errors", "email"])}
                onChange={this.handleInput.bind(this, "email")}
                {...this.props.inputProps.email} />
+
+        <Input type="tel"
+               floatingLabelText="Mobile"
+               className="email-sign-up-mobile"
+               disabled={disabled}
+               value={this.props.auth.getIn(["emailSignUp", this.getEndpoint(), "form", "mobile"])}
+               errors={this.props.auth.getIn(["emailSignUp", this.getEndpoint(), "errors", "mobile"])}
+               onChange={this.handleInput.bind(this, "mobile")}
+               {...this.props.inputProps.mobile} />
 
         <Input type="password"
                floatingLabelText="Password"
@@ -75,14 +94,7 @@ class EmailSignUpForm extends React.Component {
                onChange={this.handleInput.bind(this, "password")}
                {...this.props.inputProps.password} />
 
-        <Input type="password"
-               floatingLabelText="Password Confirmation"
-               className="email-sign-up-password-confirmation"
-               disabled={disabled}
-               value={this.props.auth.getIn(["emailSignUp", this.getEndpoint(), "form", "password_confirmation"])}
-               errors={this.props.auth.getIn(["emailSignUp", this.getEndpoint(), "errors", "password_confirmation"])}
-               onChange={this.handleInput.bind(this, "password_confirmation")}
-               {...this.props.inputProps.passwordConfirmation} />
+        <br/>
 
         <ButtonLoader loading={this.props.auth.getIn(["emailSignUp", this.getEndpoint(), "loading"])}
                       type="submit"
