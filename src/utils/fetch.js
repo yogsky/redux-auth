@@ -11,12 +11,10 @@ import {
 
 var clientHeaders = {}
 
-export function setHeaders(headers = []) {
-  headers.forEach(obj => {
-    const key = Object.keys(obj)[0]
-    const value = obj[key]
-    clientHeaders[key] = value
-  })
+export function setHeaders(headers = {}) {
+  Object
+    .keys(headers)
+    .forEach(key => clientHeaders[key] = headers[key])
 }
 
 var isApiRequest = function(url) {
