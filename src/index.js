@@ -37,6 +37,7 @@ export {emailSignIn, emailSignInFormUpdate} from "./actions/email-sign-in";
 export {signOut} from "./actions/sign-out";
 export {emailSignUp, emailSignUpFormUpdate} from "./actions/email-sign-up";
 export {oAuthSignIn} from "./actions/oauth-sign-in";
+export {updateUserAttributes} from "./actions/user";
 export {requestPasswordReset, requestPasswordResetFormUpdate} from "./actions/request-password-reset";
 export {updatePassword, updatePasswordFormUpdate} from "./actions/update-password";
 export {updatePasswordModal, updatePasswordModalFormUpdate} from "./actions/update-password-modal";
